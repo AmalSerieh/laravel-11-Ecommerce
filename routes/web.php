@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\WishlistController;
 use Surfsidemedia\Shoppingcart\Facades\Cart;
@@ -128,3 +129,5 @@ Route::middleware(['auth', AuthAdmin::class])->group(function () {
 });
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/googleAuth', [GoogleController::class, 'googleAuth'])->name('google.auth');
+Route::get('/google/callback', [GoogleController::class, 'googlecallback'])->name('google.callback');
